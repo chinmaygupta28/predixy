@@ -71,7 +71,7 @@ Server* ServerPool::iter(const std::vector<Server*>& servs, int& cursor)
     }
     while (cursor < size) {
         Server* serv = servs[cursor++];
-        if (serv->online()) {
+        if (serv->online() && !serv->fail()) {
             return serv;
         }
     }
